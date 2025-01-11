@@ -15,7 +15,7 @@ class SimpleJob implements IJob {
   };
   failed = (job?: Job): void => {
     if(job){
-  
+      console.log("Failed the job")
     }
   };
 }

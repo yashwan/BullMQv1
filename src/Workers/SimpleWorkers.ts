@@ -7,10 +7,8 @@ const simpleWorker = (queueName: string) => {
     new Worker(
         queueName,
         async (job: Job) => {
-            if(job.name === "SampleJob"){
-                const SampleJobInstance = new SimpleJob(job.data)
-                SampleJobInstance.handle(job)
-            }
+            const SampleJobInstance = new SimpleJob(job.data)
+            SampleJobInstance.handle(job)
         },{
             connection: redisConnection
         }
