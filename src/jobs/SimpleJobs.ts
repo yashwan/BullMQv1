@@ -8,10 +8,13 @@ class SimpleJob implements IJob {
     this.name = this.constructor.name;
     this.payload = payload;
   }
-  handle = (job?: Job): void => {
+  handle = (job?: Job): any[] => {
+    let array: any[] = []
     if(job){
         console.log(`Job Name: ${job.name}, Job Id: ${job.id}, Job Data: ${JSON.stringify(job.data)}`)
+        array.push(job.data)
     }
+    return array
   };
   failed = (job?: Job): void => {
     if(job){
